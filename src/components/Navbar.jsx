@@ -3,43 +3,32 @@ import { Heart,ShoppingCart,User } from 'lucide-react';
 
 
 function Navbar(){
+
+    const linkStyles = ({ isActive }) => 
+    `pb-1 transition-all duration-200 border-b-2 ${
+      isActive 
+        ? "text-indigo-500 border-indigo-500" 
+        : "text-slate-600 border-transparent hover:text-indigo-400 hover:border-indigo-400"
+    }`;
+
     return(
         <>
-            <div className="w-[95%] mx-auto flex justify-between px-3 pt-2 font-medium">
+            <div className="w-[95%] mx-auto flex justify-between items-center px-3 pt-4 font-medium">
+                {/* Logo */}
                 <div>
-                    <h4 className="font-bold text-indigo-400">STORE</h4>
+                    <h4 className="font-bold text-xl tracking-tighter text-indigo-500">STORE</h4>
                 </div>
 
-                <nav className="flex gap-3">
-
-                    <NavLink className={({ isActive }) => 
-                        `pb-1 hover:text-indigo-400 hover:border-b-2 hover:border-indigo-400 ${
-                        isActive 
-                            && "text-indigo-400 border-b-2 border-indigo-400" 
-                        }`
-                    } to="/">Home</NavLink>
-
-                    <NavLink className={({ isActive }) => 
-                        `pb-1 hover:text-indigo-400 hover:border-b-2 hover:border-indigo-400 ${
-                        isActive 
-                            && "text-indigo-400 border-b-2 border-indigo-400" 
-                        }`
-                    } to="/prodotti">Prodotti</NavLink>
-
-                    <NavLink className={({ isActive }) => 
-                        `pb-1 hover:text-indigo-400 hover:border-b-2 hover:border-indigo-400 ${
-                        isActive 
-                            && "text-indigo-400 border-b-2 border-indigo-400"
-                        }`
-                    } to="/chi-siamo">Chi Siamo</NavLink>
+                {/* Navigazione centrale */}
+                <nav className="flex gap-8">
+                    <NavLink to="/" className={linkStyles}>Home</NavLink>
+                    <NavLink to="/prodotti" className={linkStyles}>Prodotti</NavLink>
+                    <NavLink to="/chi-siamo" className={linkStyles}>Chi Siamo</NavLink>
                 </nav> 
                 
-                <div className="flex gap-5 items-center">
-
-                    <input className="pb-1 border border-slate-300 rounded-xl px-2 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 
-                             transition-all" type="text" placeholder="cerca prodotto ..."
-                    />
-
+                {/* Icona Utente */}
+                <div className="flex items-center justify-center w-9 h-9 bg-slate-100 rounded-full hover:bg-slate-200 cursor-pointer transition-colors">
+                    <User size={18} className="text-slate-600" />
                 </div>
             </div>
         </>
