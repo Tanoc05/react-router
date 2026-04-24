@@ -14,7 +14,7 @@ function Footer(){
                     </div>
                 </div>
             </div>
-            <div className="w-[95%] mx-auto mt-5 flex justify-between items-center">
+            <div className="w-[95%] mx-auto mt-5 flex justify-between items-center pb-4">
                 <div>
                     <p className="text-xs font-medium">Store - Gaetano Davide Calabro'</p>
                     <p className="text-[10px] text-slate-400">
