@@ -1,10 +1,12 @@
 import { useState,useEffect } from "react";
 import axios from "axios";
 import Card from "./components/Card";
+import { useNavigate } from "react-router-dom";
 
 function Prodotti(){
 
     const [TrendingNow,SetTrendingNow] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get("https://fakestoreapi.com/products/")
@@ -23,7 +25,7 @@ function Prodotti(){
                     <p className="text-xs text-slate-400">I pezzi di Cui Stanno parlando tutti</p>
                 </div>
 
-                <div className="pr-3 pl-8 mt-3 grid grid-cols-4 gap-1 gap-y-4">
+                <div className="pr-3 pl-8 mt-3 grid finitogrid-cols-4 gap-1 gap-y-4">
                     {TrendingNow.map((pr) => (
                         <Card key={pr.id} pr={pr}/>
                     ))}
