@@ -25,7 +25,7 @@ function Prodotti(){
                     <p className="text-xs text-slate-400">I pezzi di Cui Stanno parlando tutti</p>
                 </div>
 
-                <div className="pr-3 pl-8 mt-3 grid finitogrid-cols-4 gap-1 gap-y-4">
+                <div className="pr-3 pl-8 mt-3 grid finito grid-cols-4 gap-1 gap-y-4">
                     {TrendingNow.map((pr) => (
                         <Card key={pr.id} pr={pr}/>
                     ))}
